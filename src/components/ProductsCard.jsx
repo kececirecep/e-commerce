@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 
 import { PiHeartThin } from "react-icons/pi";
@@ -15,11 +15,13 @@ import 'react-toastify/dist/ReactToastify.css';
 const ProductsCard = ({ product }) => {
   const dispatch = useDispatch();
 
+  const isFavorited = useSelector(state => state.favourite.favouriteItems.some(item => item.id === product.id));
+
   const handleAddToCart = (product)=>{
     dispatch(addToCart(product))
     addSuccess(product) 
     }
-    
+     
  
 
     const addSuccess = (product) => {
@@ -60,9 +62,15 @@ const ProductsCard = ({ product }) => {
     padding: "4px",
     borderRadius: "50%"
   }
+  const favProductCss = {
+    color: isFavorited ? "#ff0000" : "#000000", 
+    fontWeight:"bold",   
+  };
+
   const popularProductViewCss = {
     fontSize: "22px"
   }
+
   return (
     <div className='flex'>
       <ToastContainer/>
@@ -70,7 +78,7 @@ const ProductsCard = ({ product }) => {
         <NavLink to={`/product/${product.id}`}><img src={product.image} style={{ width: '330px', height: '200px', objectFit: 'contain' }} alt="" className='p-8' /></NavLink>
         <h2 className='text-[#003F62] font-medium text-[19px] py-2 titlePrice'>{product.name}</h2>
         <span className='text-[#4A4A4A] font-semibold text-[17px] py-2 titlePrice'>${product.price}</span>
-        <button onClick={() => handleaddToFav(product)} className='absolute top-8 right-6 p-1 text-xl bg-[#87BCD9] rounded-full'><PiHeartThin /></button>
+        <button onClick={() => handleaddToFav(product)} style={favProductCss} className='absolute top-8 right-6 p-1 text-3xl text-[#ff0000] bg-[#87BCD9] rounded-full'><PiHeartThin/></button>
         <div className='flex w-80 justify-between items-center popularAddCart p-4'>
           <button onClick={()=>handleAddToCart(product)} className='flex items-center p-4 bg-[#87BCD9] gap-12 rounded-2xl'>Add to cart
             <span style={popularProductCss} ><AiOutlineShoppingCart /></span></button>
