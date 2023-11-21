@@ -33,22 +33,22 @@ const Products = () => {
                 })
                 }
             </div>
-            <div className="mt-12">
+            <div className="my-8 font-semibold">
                 <button
                     onClick={() => setCurrentPage(currentPage - 1)}
                     disabled={currentPage === 1}
-                    className={`bg-blue-500 text-white px-4 py-2 rounded ${currentPage === 1 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-blue-600'
+                    className={`p-4 bg-[#87BCD9] gap-12 rounded-2xl text-white ${currentPage === 1 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-[#6191aa]'
                         }`}
                 >
                     Önceki Sayfa
                 </button>
-                <span>Sayfa {currentPage} / {totalPages}</span>
+                <span className='font-semibold'> {currentPage} / {totalPages}</span>
                 <button
                     onClick={() => setCurrentPage(currentPage + 1)}
                     disabled={currentProducts.length < productsPerPage}
-                    className={`bg-blue-500 text-white px-4 py-2 rounded ${currentPage === totalPages || currentProducts.length < productsPerPage
+                    className={`p-4 bg-[#87BCD9] gap-12 rounded-2xl text-white ${currentPage === totalPages || currentProducts.length < productsPerPage
                         ? 'opacity-50 cursor-not-allowed'
-                        : 'hover:bg-blue-600'
+                        : 'hover:bg-[#6191aa]'
                         }`}
                 >
                     Sonraki Sayfa
