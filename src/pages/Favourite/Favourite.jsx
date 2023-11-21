@@ -19,7 +19,7 @@ const Favourite = () => {
         {
             favItems.map(item=>{
                 return(
-                    <div className='flex justify-center items-center gap-12 shadow shadow-[#003f62] p-4'>
+                    <div className='flex justify-center items-center gap-12 shadow p-4'>
                         <img src={item.image} style={{ width: '330px', height: '200px', objectFit: 'contain' }} alt="" className='p-8' />
                         <h2 className='w-36 text-[#003F62] font-semibold'>{item.name}</h2>
                         <h2 className='w-36 font-semibold text-[#2F2F2F]'>${item.price}</h2> 
