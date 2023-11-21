@@ -22,12 +22,7 @@ const Cart = () => {
                             <div className='flex items-center gap-12 border-b border-gray-300'>
                                 <img src={item.image} style={{ width: '330px', height: '200px', objectFit: 'contain' }} alt="" className='p-8' />
                                 <h2 className='w-36 text-[#003F62] font-semibold'>{item.name}</h2>
-                                <h2 className='w-36 font-semibold text-[#2F2F2F]'>${item.price}</h2>
-                                <div class="mt-4 flex items-center">
-                                    <button class="px-3 py-1 border rounded-l">-</button>
-                                    <input class="w-10 p-1 text-center pl-4 border-t border-b" type="number" value="1" />
-                                    <button class="px-3 py-1 border rounded-r">+</button>
-                                </div>
+                                <h2 className='w-36 font-semibold text-[#2F2F2F]'>${item.price}</h2> 
                                 <button onClick={() => dispatch(removeFromCart({ id: item.id }))}>{<AiOutlineCloseCircle style={removeIcon} />}</button>
                             </div>
                         )
